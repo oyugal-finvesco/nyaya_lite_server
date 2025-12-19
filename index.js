@@ -23,7 +23,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/nyaya/', nyayaRoutes);
 
-app.get('/', (req, res) => { res.send("Nyaya-Lite Backend Running") });
+app.get('/nyaya', (req, res) => { res.send("Nyaya-Lite Backend Running") });
 
 app.listen(PORT, () => {
     console.log(`App is Running on ${PORT}`);
