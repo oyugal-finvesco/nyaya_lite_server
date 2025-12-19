@@ -21,7 +21,7 @@ app.use(express.json());
 // This allows you to access images via http://localhost:PORT/uploads/filename.jpg
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use('/api/nyaya/', nyayaRoutes);
+app.use('/api/nyaya', nyayaRoutes);
 
 app.get('/nyaya', (req, res) => { res.send("Nyaya-Lite Backend Running") });
 
