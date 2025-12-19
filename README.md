@@ -60,16 +60,6 @@ To strictly adhere to the "Legal Custodian" requirement and ensure encryption-at
            3) Role-based permissions
     * Presigned URLs use SigV4 authentication with temporary security credentials
 
-**Bucket Structure:**
-
-nyaya-production/
-├── {firm_id}/
-│   ├── {case_id}/
-│   │   ├── evidence/
-│   │   └── correspondence/
-
-
-
 **2. Automated Malware Scanning Pipeline**
 We implement a "Quarantine-Scan-Promote" pattern to protect the legal vault from malicious uploads while maintaining user experience:
 **Pipeline Architecture:**
@@ -121,28 +111,6 @@ If Infected:
 **3. Feature Flags (AWS AppConfig)**
 To manage tiered rollouts and enable/disable features dynamically without code deployments, we utilize AWS AppConfig for centralized feature flag management.
 
-Implementation Strategy:
-
-Configuration Structure:
-json: {
-  "features": {
-    "enable_evidence_ocr": {
-      "enabled": true,
-      "allowed_tiers": ["platinum", "enterprise"],
-      "rollout_percentage": 100
-    },
-    "enable_video_upload": {
-      "enabled": true,
-      "allowed_tiers": ["gold", "platinum", "enterprise"],
-      "rollout_percentage": 50
-    },
-    "enable_ai_document_summary": {
-      "enabled": false,
-      "allowed_tiers": ["enterprise"],
-      "rollout_percentage": 0
-    }
-  }
-}
 
 Backend Integration:
      1) Node.js middleware checks feature availability before executing feature-specific code
