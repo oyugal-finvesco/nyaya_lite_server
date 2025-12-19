@@ -61,6 +61,7 @@ To strictly adhere to the "Legal Custodian" requirement and ensure encryption-at
     * Presigned URLs use SigV4 authentication with temporary security credentials
 
 **Bucket Structure:**
+
 nyaya-production/
 ├── {firm_id}/
 │   ├── {case_id}/
